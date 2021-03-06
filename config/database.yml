@@ -1,0 +1,26 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: root
+  port: 3336
+
+development:
+  <<: *default
+  database: rails_react_development
+  password: root
+  port: 3336
+
+
+test:
+  <<: *default
+  database: rails_react_test
+
+
+production:
+  <<: *default
+  database: rails_react_production
+  username: rails_react
+  password: <%= ENV['RAILS_REACT_DATABASE_PASSWORD'] %>
